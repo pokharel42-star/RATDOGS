@@ -1,0 +1,14 @@
+export type LiveResult = {
+  /** canonical team names matching app/data.ts */
+  home: string;
+  away: string;
+  homeScore: number;
+  awayScore: number;
+  /** pre = not started, in = live, post = full time */
+  state: "pre" | "in" | "post";
+  /** e.g. "FT", "45'", "6/11 - 3:00 PM EDT" */
+  detail: string;
+  date: string;
+};
+
+export const resultKey = (home: string, away: string) => `${home}|${away}`;

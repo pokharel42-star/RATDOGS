@@ -1,0 +1,58 @@
+import { NextResponse } from "next/server";
+import type { LiveResult } from "../../results";
+
+/** Whole tournament window: group stage through the final (July 19). */
+const ESPN_URL =
+  "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260611-20260719&limit=300";
+
+/** ESPN display names that differ from ours */
+const ALIASES: Record<string, string> = {
+  "Bosnia-Herzegovina": "Bosnia and Herzegovina",
+};
+const canonical = (name: string) => ALIASES[name] ?? name;
+
+type EspnCompetitor = {
+  homeAway: "home" | "away";
+  score?: string;
+  team: { displayName: string };
+};
+type EspnEvent = {
+  date: string;
+  competitions: {
+    competitors: EspnCompetitor[];
+    status: { type: { state: "pre" | "in" | "post"; shortDetail?: string } };
+  }[];
+};
+
+export async function GET() {
+  try {
+    const res = await fetch(ESPN_URL, { next: { revalidate: 60 } });
+    if (!res.ok) throw new Error(`ESPN responded ${res.status}`);
+    const data: { events?: EspnEvent[] } = await res.json();
+
+    const results: LiveResult[] = (data.events ?? []).flatMap((e) => {
+      const comp = e.competitions[0];
+      const home = comp?.competitors.find((c) => c.homeAway === "home");
+      const away = comp?.competitors.find((c) => c.homeAway === "away");
+      if (!comp || !home || !away) return [];
+      return [
+        {
+          home: canonical(home.team.displayName),
+          away: canonical(away.team.displayName),
+          homeScore: Number(home.score ?? 0),
+          awayScore: Number(away.score ?? 0),
+          state: comp.status.type.state,
+          detail: comp.status.type.shortDetail ?? "",
+          date: e.date,
+        },
+      ];
+    });
+
+    return NextResponse.json({ results, fetchedAt: new Date().toISOString() });
+  } catch (err) {
+    return NextResponse.json(
+      { results: [], error: String(err) },
+      { status: 502 },
+    );
+  }
+}

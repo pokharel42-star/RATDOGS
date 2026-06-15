@@ -1,0 +1,103 @@
+export type Match = {
+  /** ISO date (AEST calendar day) */
+  date: string;
+  group: string;
+  home: string;
+  away: string;
+  city: string;
+  /** kickoff in AEST (UTC+10) */
+  time: string;
+};
+
+/** Group-stage schedule (all 72 matches), kickoffs converted to AEST from ESPN's UTC timestamps. */
+export const MATCHES: Match[] = [
+  // Friday, June 12
+  { date: "2026-06-12", group: "A", home: "Mexico", away: "South Africa", city: "Mexico City", time: "5 AM" },
+  { date: "2026-06-12", group: "A", home: "South Korea", away: "Czechia", city: "Guadalajara", time: "12 PM" },
+  // Saturday, June 13
+  { date: "2026-06-13", group: "B", home: "Canada", away: "Bosnia and Herzegovina", city: "Toronto", time: "5 AM" },
+  { date: "2026-06-13", group: "D", home: "United States", away: "Paraguay", city: "Inglewood", time: "11 AM" },
+  // Sunday, June 14
+  { date: "2026-06-14", group: "B", home: "Qatar", away: "Switzerland", city: "Santa Clara", time: "5 AM" },
+  { date: "2026-06-14", group: "C", home: "Brazil", away: "Morocco", city: "East Rutherford", time: "8 AM" },
+  { date: "2026-06-14", group: "C", home: "Haiti", away: "Scotland", city: "Foxborough", time: "11 AM" },
+  { date: "2026-06-14", group: "D", home: "Australia", away: "Türkiye", city: "Vancouver", time: "2 PM" },
+  // Monday, June 15
+  { date: "2026-06-15", group: "E", home: "Germany", away: "Curaçao", city: "Houston", time: "3 AM" },
+  { date: "2026-06-15", group: "F", home: "Netherlands", away: "Japan", city: "Arlington", time: "6 AM" },
+  { date: "2026-06-15", group: "E", home: "Ivory Coast", away: "Ecuador", city: "Philadelphia", time: "9 AM" },
+  { date: "2026-06-15", group: "F", home: "Sweden", away: "Tunisia", city: "Guadalupe", time: "12 PM" },
+  // Tuesday, June 16
+  { date: "2026-06-16", group: "H", home: "Spain", away: "Cape Verde", city: "Atlanta", time: "2 AM" },
+  { date: "2026-06-16", group: "G", home: "Belgium", away: "Egypt", city: "Seattle", time: "5 AM" },
+  { date: "2026-06-16", group: "H", home: "Saudi Arabia", away: "Uruguay", city: "Miami Gardens", time: "8 AM" },
+  { date: "2026-06-16", group: "G", home: "Iran", away: "New Zealand", city: "Inglewood", time: "11 AM" },
+  // Wednesday, June 17
+  { date: "2026-06-17", group: "I", home: "France", away: "Senegal", city: "East Rutherford", time: "5 AM" },
+  { date: "2026-06-17", group: "I", home: "Iraq", away: "Norway", city: "Foxborough", time: "8 AM" },
+  { date: "2026-06-17", group: "J", home: "Argentina", away: "Algeria", city: "Kansas City", time: "11 AM" },
+  { date: "2026-06-17", group: "J", home: "Austria", away: "Jordan", city: "Santa Clara", time: "2 PM" },
+  // Thursday, June 18
+  { date: "2026-06-18", group: "K", home: "Portugal", away: "Congo DR", city: "Houston", time: "3 AM" },
+  { date: "2026-06-18", group: "L", home: "England", away: "Croatia", city: "Arlington", time: "6 AM" },
+  { date: "2026-06-18", group: "L", home: "Ghana", away: "Panama", city: "Toronto", time: "9 AM" },
+  { date: "2026-06-18", group: "K", home: "Uzbekistan", away: "Colombia", city: "Mexico City", time: "12 PM" },
+  // Friday, June 19
+  { date: "2026-06-19", group: "A", home: "Czechia", away: "South Africa", city: "Atlanta", time: "2 AM" },
+  { date: "2026-06-19", group: "B", home: "Switzerland", away: "Bosnia and Herzegovina", city: "Inglewood", time: "5 AM" },
+  { date: "2026-06-19", group: "B", home: "Canada", away: "Qatar", city: "Vancouver", time: "8 AM" },
+  { date: "2026-06-19", group: "A", home: "Mexico", away: "South Korea", city: "Guadalajara", time: "11 AM" },
+  // Saturday, June 20
+  { date: "2026-06-20", group: "D", home: "United States", away: "Australia", city: "Seattle", time: "5 AM" },
+  { date: "2026-06-20", group: "C", home: "Scotland", away: "Morocco", city: "Foxborough", time: "8 AM" },
+  { date: "2026-06-20", group: "C", home: "Brazil", away: "Haiti", city: "Philadelphia", time: "10:30 AM" },
+  { date: "2026-06-20", group: "D", home: "Türkiye", away: "Paraguay", city: "Santa Clara", time: "1 PM" },
+  // Sunday, June 21
+  { date: "2026-06-21", group: "F", home: "Netherlands", away: "Sweden", city: "Houston", time: "3 AM" },
+  { date: "2026-06-21", group: "E", home: "Germany", away: "Ivory Coast", city: "Toronto", time: "6 AM" },
+  { date: "2026-06-21", group: "E", home: "Ecuador", away: "Curaçao", city: "Kansas City", time: "10 AM" },
+  { date: "2026-06-21", group: "F", home: "Tunisia", away: "Japan", city: "Guadalupe", time: "2 PM" },
+  // Monday, June 22
+  { date: "2026-06-22", group: "H", home: "Spain", away: "Saudi Arabia", city: "Atlanta", time: "2 AM" },
+  { date: "2026-06-22", group: "G", home: "Belgium", away: "Iran", city: "Inglewood", time: "5 AM" },
+  { date: "2026-06-22", group: "H", home: "Uruguay", away: "Cape Verde", city: "Miami Gardens", time: "8 AM" },
+  { date: "2026-06-22", group: "G", home: "New Zealand", away: "Egypt", city: "Vancouver", time: "11 AM" },
+  // Tuesday, June 23
+  { date: "2026-06-23", group: "J", home: "Argentina", away: "Austria", city: "Arlington", time: "3 AM" },
+  { date: "2026-06-23", group: "I", home: "France", away: "Iraq", city: "Philadelphia", time: "7 AM" },
+  { date: "2026-06-23", group: "I", home: "Norway", away: "Senegal", city: "East Rutherford", time: "10 AM" },
+  { date: "2026-06-23", group: "J", home: "Jordan", away: "Algeria", city: "Santa Clara", time: "1 PM" },
+  // Wednesday, June 24
+  { date: "2026-06-24", group: "K", home: "Portugal", away: "Uzbekistan", city: "Houston", time: "3 AM" },
+  { date: "2026-06-24", group: "L", home: "England", away: "Ghana", city: "Foxborough", time: "6 AM" },
+  { date: "2026-06-24", group: "L", home: "Panama", away: "Croatia", city: "Toronto", time: "9 AM" },
+  { date: "2026-06-24", group: "K", home: "Colombia", away: "Congo DR", city: "Guadalajara", time: "12 PM" },
+  // Thursday, June 25
+  { date: "2026-06-25", group: "B", home: "Bosnia and Herzegovina", away: "Qatar", city: "Seattle", time: "5 AM" },
+  { date: "2026-06-25", group: "B", home: "Switzerland", away: "Canada", city: "Vancouver", time: "5 AM" },
+  { date: "2026-06-25", group: "C", home: "Morocco", away: "Haiti", city: "Atlanta", time: "8 AM" },
+  { date: "2026-06-25", group: "C", home: "Scotland", away: "Brazil", city: "Miami Gardens", time: "8 AM" },
+  { date: "2026-06-25", group: "A", home: "Czechia", away: "Mexico", city: "Mexico City", time: "11 AM" },
+  { date: "2026-06-25", group: "A", home: "South Africa", away: "South Korea", city: "Guadalupe", time: "11 AM" },
+  // Friday, June 26
+  { date: "2026-06-26", group: "E", home: "Curaçao", away: "Ivory Coast", city: "Philadelphia", time: "6 AM" },
+  { date: "2026-06-26", group: "E", home: "Ecuador", away: "Germany", city: "East Rutherford", time: "6 AM" },
+  { date: "2026-06-26", group: "F", home: "Japan", away: "Sweden", city: "Arlington", time: "9 AM" },
+  { date: "2026-06-26", group: "F", home: "Tunisia", away: "Netherlands", city: "Kansas City", time: "9 AM" },
+  { date: "2026-06-26", group: "D", home: "Paraguay", away: "Australia", city: "Santa Clara", time: "12 PM" },
+  { date: "2026-06-26", group: "D", home: "Türkiye", away: "United States", city: "Inglewood", time: "12 PM" },
+  // Saturday, June 27
+  { date: "2026-06-27", group: "I", home: "Norway", away: "France", city: "Foxborough", time: "5 AM" },
+  { date: "2026-06-27", group: "I", home: "Senegal", away: "Iraq", city: "Toronto", time: "5 AM" },
+  { date: "2026-06-27", group: "H", home: "Cape Verde", away: "Saudi Arabia", city: "Houston", time: "10 AM" },
+  { date: "2026-06-27", group: "H", home: "Uruguay", away: "Spain", city: "Guadalajara", time: "10 AM" },
+  { date: "2026-06-27", group: "G", home: "Egypt", away: "Iran", city: "Seattle", time: "1 PM" },
+  { date: "2026-06-27", group: "G", home: "New Zealand", away: "Belgium", city: "Vancouver", time: "1 PM" },
+  // Sunday, June 28
+  { date: "2026-06-28", group: "L", home: "Croatia", away: "Ghana", city: "Philadelphia", time: "7 AM" },
+  { date: "2026-06-28", group: "L", home: "Panama", away: "England", city: "East Rutherford", time: "7 AM" },
+  { date: "2026-06-28", group: "K", home: "Colombia", away: "Portugal", city: "Miami Gardens", time: "9:30 AM" },
+  { date: "2026-06-28", group: "K", home: "Congo DR", away: "Uzbekistan", city: "Atlanta", time: "9:30 AM" },
+  { date: "2026-06-28", group: "J", home: "Algeria", away: "Austria", city: "Kansas City", time: "12 PM" },
+  { date: "2026-06-28", group: "J", home: "Jordan", away: "Argentina", city: "Arlington", time: "12 PM" },
+];
